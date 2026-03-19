@@ -1285,3 +1285,520 @@ body {
 .skip-link { background: #c81e1e; }
 
 :focus-visible { outline-color: #c81e1e; }
+
+
+/* =========================================================
+   PRICING SECTION
+   ========================================================= */
+.pricing {
+  padding: clamp(var(--space-12), 8vw, var(--space-24)) 0;
+  background: var(--color-bg);
+}
+
+.pricing__grid {
+  display: grid;
+  gap: var(--space-6);
+  margin-bottom: var(--space-8);
+}
+
+@media (min-width: 768px) {
+  .pricing__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.pricing-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8) var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  position: relative;
+  text-align: center;
+  transition: border-color 200ms ease, box-shadow 200ms ease;
+}
+
+.pricing-card--featured {
+  border-color: #c81e1e;
+  box-shadow: 0 4px 24px rgba(200,30,30,0.15);
+}
+
+.pricing-card__badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #c81e1e;
+  color: #fff;
+  font-size: var(--text-xs);
+  font-weight: 700;
+  padding: 4px 16px;
+  border-radius: var(--radius-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+.pricing-card__tier {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--text-lg);
+  color: var(--color-text);
+}
+
+.pricing-card__price {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  color: #fff;
+  line-height: 1;
+}
+
+.pricing-card__price span {
+  font-size: var(--text-base);
+  font-weight: 500;
+  color: var(--color-text-muted);
+}
+
+.pricing-card__desc {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  flex: 1;
+}
+
+.pricing__no-contract {
+  text-align: center;
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-8);
+}
+
+.pricing__transparency {
+  max-width: 600px;
+  margin: 0 auto;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
+  text-align: center;
+}
+
+.pricing__transparency-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--text-lg);
+  color: var(--color-text);
+  margin-bottom: var(--space-4);
+}
+
+.pricing__transparency p {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-2);
+}
+
+
+/* =========================================================
+   PUNCHCARD SECTION
+   ========================================================= */
+.punchcard {
+  padding: clamp(var(--space-12), 8vw, var(--space-20)) 0;
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-divider);
+}
+
+.punchcard__inner {
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.punchcard__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--text-xl);
+  color: var(--color-text);
+  margin-bottom: var(--space-4);
+  letter-spacing: -0.02em;
+}
+
+.punchcard__text {
+  font-size: var(--text-base);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-4);
+}
+
+.punchcard__highlight {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--text-lg);
+  color: var(--color-text);
+  margin-bottom: var(--space-8);
+}
+
+
+/* =========================================================
+   AFTER-SCHOOL VAN IMAGE
+   ========================================================= */
+.after-school__image-wrap {
+  margin: var(--space-6) 0;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.after-school__van-img {
+  width: 100%;
+  height: auto;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  filter: brightness(1.05);
+}
+
+
+/* =========================================================
+   CONFIDENCE / KIDS FLEXING SECTION
+   ========================================================= */
+.confidence {
+  padding: clamp(var(--space-12), 8vw, var(--space-24)) 0;
+  background: var(--color-bg);
+}
+
+.confidence__inner {
+  display: grid;
+  gap: var(--space-10);
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .confidence__inner {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-12);
+  }
+}
+
+.confidence__image-wrap {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.confidence__image {
+  width: 100%;
+  height: auto;
+  max-height: 500px;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  filter: brightness(1.05) contrast(1.02);
+}
+
+.confidence__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--text-xl);
+  color: var(--color-text);
+  margin-bottom: var(--space-5);
+  letter-spacing: -0.02em;
+}
+
+.confidence__text {
+  font-size: var(--text-base);
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  margin-bottom: var(--space-8);
+}
+
+
+/* =========================================================
+   CAMPS SECTION
+   ========================================================= */
+.camps {
+  padding: clamp(var(--space-12), 8vw, var(--space-20)) 0;
+  background: var(--color-surface);
+}
+
+.camps__inner {
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.camps__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--text-xl);
+  color: var(--color-text);
+  margin-bottom: var(--space-4);
+  letter-spacing: -0.02em;
+}
+
+.camps__text {
+  font-size: var(--text-base);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-8);
+}
+
+
+/* =========================================================
+   MEET SENSEI — COACHING PHOTO FULL WIDTH
+   ========================================================= */
+.about__photo--coaching-full {
+  grid-column: 1 / -1;
+}
+
+.about__photo--coaching-full img {
+  aspect-ratio: 16/7;
+  width: 100%;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+}
+
+/* Enhanced credential badges */
+.credential--highlight {
+  background: rgba(200, 30, 30, 0.12);
+  border-color: rgba(200, 30, 30, 0.4);
+  color: #f0a0a0;
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   OLYMPIC DREAMS SECTION
+   ========================================================= */
+.olympic-dreams {
+  padding: clamp(var(--space-12), 8vw, var(--space-24)) 0;
+  background: var(--color-bg);
+}
+
+.olympic-dreams__inner {
+  display: grid;
+  gap: var(--space-10);
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .olympic-dreams__inner {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-12);
+  }
+}
+
+.olympic-dreams__title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: var(--text-xl);
+  color: var(--color-text);
+  margin-bottom: var(--space-5);
+  letter-spacing: -0.02em;
+}
+
+.olympic-dreams__text {
+  font-size: var(--text-base);
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  margin-bottom: var(--space-5);
+}
+
+.olympic-dreams__stat {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--text-lg);
+  color: #c81e1e;
+  margin-bottom: var(--space-8);
+}
+
+.olympic-dreams__image-wrap {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.olympic-dreams__image {
+  width: 100%;
+  height: auto;
+  max-height: 500px;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  filter: brightness(1.05);
+}
+
+
+/* =========================================================
+   TEAM PRIDE / SOCIAL PROOF SECTION
+   ========================================================= */
+.team-pride {
+  position: relative;
+  min-height: 480px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.team-pride__image-wrap {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.team-pride__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(0.85);
+}
+
+.team-pride__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(180deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.7) 100%);
+}
+
+.team-pride__content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: clamp(var(--space-16), 10vw, var(--space-24)) var(--space-5);
+  max-width: 640px;
+}
+
+.team-pride__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--text-xl);
+  color: #fff;
+  margin-bottom: var(--space-4);
+  letter-spacing: -0.02em;
+}
+
+.team-pride__sub {
+  font-size: var(--text-base);
+  color: rgba(255,255,255,0.85);
+  margin-bottom: var(--space-8);
+}
+
+
+/* =========================================================
+   DONATE SECTION
+   ========================================================= */
+.donate {
+  padding: clamp(var(--space-12), 8vw, var(--space-24)) 0;
+  background: var(--color-surface);
+}
+
+.donate__inner {
+  max-width: 680px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.donate__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--text-xl);
+  color: var(--color-text);
+  margin-bottom: var(--space-6);
+  letter-spacing: -0.02em;
+}
+
+.donate__lead {
+  font-size: var(--text-base);
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  margin-bottom: var(--space-6);
+}
+
+.donate__sub {
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: var(--space-4);
+  text-align: left;
+}
+
+.donate__list {
+  list-style: none;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-bottom: var(--space-6);
+}
+
+.donate__list li {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  padding-left: var(--space-6);
+  position: relative;
+}
+
+.donate__list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 8px;
+  height: 8px;
+  background: #c81e1e;
+  border-radius: 50%;
+}
+
+.donate__closing {
+  font-size: var(--text-base);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-3);
+  font-style: italic;
+}
+
+.donate__cta-text {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--text-lg);
+  color: var(--color-text);
+  margin-bottom: var(--space-8);
+}
+
+
+/* =========================================================
+   FOOTER ACTIONS
+   ========================================================= */
+.footer__actions {
+  display: flex;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  margin-top: var(--space-5);
+}
+
+
+/* =========================================================
+   MOBILE OPTIMIZATIONS
+   ========================================================= */
+@media (max-width: 767px) {
+  .pricing-card {
+    padding: var(--space-6) var(--space-5);
+  }
+
+  .confidence__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .olympic-dreams__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .olympic-dreams__image-wrap {
+    order: -1;
+  }
+
+  .donate__sub,
+  .donate__list {
+    text-align: left;
+  }
+
+  .footer__actions {
+    justify-content: flex-start;
+  }
+}

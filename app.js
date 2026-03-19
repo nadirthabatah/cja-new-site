@@ -196,20 +196,19 @@
   }
 
 
-  /* --- Trial Form Handling --- */
+  /* --- Trial Form Handling (Formspree) --- */
   var trialForm = document.getElementById('trial-form');
   if (trialForm) {
     trialForm.addEventListener('submit', function (e) {
       e.preventDefault();
 
-      // Basic validation
-      var name = document.getElementById('trial-name');
-      var phone = document.getElementById('trial-phone');
-      var email = document.getElementById('trial-email');
-      var interest = document.getElementById('trial-interest');
+      var nameField = document.getElementById('trial-name');
+      var phoneField = document.getElementById('trial-phone');
+      var emailField = document.getElementById('trial-email');
+      var interestField = document.getElementById('trial-interest');
       var isValid = true;
 
-      [name, phone, email, interest].forEach(function (field) {
+      [nameField, phoneField, emailField, interestField].forEach(function (field) {
         field.style.borderColor = '';
         if (!field.value.trim() || (field.type === 'email' && !field.value.includes('@'))) {
           field.style.borderColor = '#c81e1e';
@@ -219,25 +218,51 @@
 
       if (!isValid) return;
 
-      // Show success state
+      var submitBtn = trialForm.querySelector('button[type="submit"]');
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
+      }
+
       var formData = {
-        name: name.value,
-        phone: phone.value,
-        email: email.value,
-        interest: interest.value
+        name: nameField.value,
+        phone: phoneField.value,
+        email: emailField.value,
+        interest: interestField.value
       };
 
-      trialForm.innerHTML = '<div class="trial-form--success">' +
-        '<div class="trial-form__success-icon">' +
-          '<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>' +
-        '</div>' +
-        '<h3 class="trial-form__success-title">You\'re All Set!</h3>' +
-        '<p class="trial-form__success-text">Thank you, ' + formData.name.split(' ')[0] + '. We will reach out within 24 hours to schedule your free trial class.</p>' +
-        '<p class="trial-form__success-text" style="margin-top:12px;">Questions? Call or text <a href="tel:5189563773" style="color:#c81e1e;text-decoration:none;font-weight:600;">(518) 956-3773</a></p>' +
-      '</div>';
-
-      // Log form data (in production, send to a backend or service)
-      console.log('Free trial signup:', formData);
+      fetch('https://formspree.io/f/mgondlpe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(formData)
+      })
+      .then(function (response) { return response.json(); })
+      .then(function (data) {
+        if (data.ok) {
+          trialForm.innerHTML =
+            '<div class="trial-form--success">' +
+              '<div class="trial-form__success-icon">' +
+                '<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>' +
+              '</div>' +
+              '<h3 class="trial-form__success-title">You\'re All Set!</h3>' +
+              '<p class="trial-form__success-text">Thank you! We\'ll text or email you shortly to schedule your free class.</p>' +
+              '<p class="trial-form__success-text" style="margin-top:12px;">Questions? Call or text <a href="tel:5189563773" style="color:#c81e1e;text-decoration:none;font-weight:600;">(518) 956-3773</a></p>' +
+            '</div>';
+        } else {
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Start Free Trial';
+          }
+          alert('Something went wrong. Please try again or call us at (518) 956-3773.');
+        }
+      })
+      .catch(function () {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Start Free Trial';
+        }
+        alert('Something went wrong. Please try again or call us at (518) 956-3773.');
+      });
     });
   }
 
